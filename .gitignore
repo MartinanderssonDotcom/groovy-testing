@@ -1,3 +1,7 @@
+build/
+.gradle/
+.nb-gradle/
+/src/main/groovy/com/martinandersson/groovy/testing/temp/
 *.class
 
 # Mobile Tools for Java (J2ME)

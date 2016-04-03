@@ -1,0 +1,43 @@
+apply plugin: 'groovy'
+
+sourceCompatibility = JavaVersion.VERSION_1_8 // will also set targetCompatibility
+
+task enforceVersion << {
+    def foundVersion = JavaVersion.current();
+    if (foundVersion != sourceCompatibility) 
+        throw new IllegalStateException(
+            "Wrong Java version. Required ${sourceCompatibility}. Found ${foundVersion}. Set new JAVA_HOME path.");
+}
+
+compileJava.dependsOn enforceVersion
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+repositories {
+    jcenter()
+    // You may define additional repositories, or even remove "mavenCentral()".
+    // Read more about repositories here:
+    //   http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:repositories
+}
+
+dependencies {
+    // TODO: Add dependencies here ...
+    // You can read more about how to add dependency here:
+    //   http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:how_to_declare_your_dependencies
+    testCompile group: 'junit', name: 'junit', version: '4.10'
+    
+    // Erm yes, Gradle ships with one AND we applied the Groovy plugin, yet this needs to be done:
+    // Or use localGroovy() - but then the version is not build-consistent.
+    compile 'org.codehaus.groovy:groovy:2.4.6'
+}
+
+// Provide "run file" support for NetBeans:
+task run(type: JavaExec, dependsOn: compileGroovy) {
+    description "Execute a specific class using a Gradle command-line argument like so \"-PmainClass=com.x.y.Z\")."
+    
+    if (project.hasProperty('mainClass')) {
+        main = mainClass
+    }
+    
+    classpath = sourceSets.main.runtimeClasspath
+}

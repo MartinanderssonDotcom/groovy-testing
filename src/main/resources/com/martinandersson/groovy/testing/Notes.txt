@@ -1,0 +1,22 @@
+Groovy API:
+    http://docs.groovy-lang.org/latest/html/gapi/
+
+API source code:
+    https://github.com/apache/groovy
+
+The Groovy API show no class hierarchy. Thank god a normal JavaDoc version of the docs with the hierarchy exists here:
+    http://docs.groovy-lang.org/latest/html/api/
+
+"Groovy Development Kit enhancements" / "Describes the methods added to the JDK to make it more groovy":
+(unfortunately for all serious programmers this API does not have a class hierarchy nor have I found a source for it)
+    http://docs.groovy-lang.org/latest/html/groovy-jdk/
+
+GDK source code:
+     XXX
+     Posted question here: http://programmers.stackexchange.com/questions/311266/where-can-i-find-the-source-code-of-groovys-java-class-enhancements
+     .. but it was deleted as "off topic" and no one seem to know/care.
+
+
+Single-page documentation:
+    Contains 1) X, 2) X, 3) X.
+    http://groovy-lang.org/single-page-documentation.html
