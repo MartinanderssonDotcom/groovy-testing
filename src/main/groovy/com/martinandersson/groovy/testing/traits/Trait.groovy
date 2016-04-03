@@ -5,10 +5,6 @@ package com.martinandersson.groovy.testing.traits
  * 
  * Source: http://docs.groovy-lang.org/next/html/documentation/core-traits.html
  * 
- * Basically, these are all fancy words to say "we reintroduce the problematic
- * construct of multiple inheritance because we think complexity is cool
- * shit."<p>
- * 
  * A trait is a class. And, Groovy now allow another class to extend many of
  * them. That is basically it. We can also, as demonstrated in this file, let
  * one object instance pseudo magically extend a "trait" during runtime.<p>
