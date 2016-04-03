@@ -8,7 +8,34 @@ package com.martinandersson.groovy.testing.closures
 class Closures
 {
     static main(ignored) {
-        // Example from:
+        def optionalArg = {
+            "it: $it"
+        }
+        
+        assert optionalArg() == 'it: null'
+        assert optionalArg(1) == 'it: 1'
+        
+        try {
+            optionalArg(1, 2)
+            assert false
+        }
+        catch (MissingMethodException e) {}
+        
+        def noArg = { ->
+            // Despite its name, hasProperty return MetaProperty:
+            'it: ' + hasProperty('it')
+        }
+        
+        assert noArg() == 'it: null'
+        
+        try {
+            noArg(1)
+            assert false
+        }
+        catch (MissingMethodException e) {}
+        
+        
+        // The following example come from:
         // http://groovy.jmiguel.eu/groovy.codehaus.org/Scoping+and+the+Semantics+of+%22def%22.html
         
         // "it" refer only to the executing closure.
@@ -51,7 +78,7 @@ class Closures
         catch (MissingMethodException e) {
             assert e.class == MissingMethodException
             assert e.message ==
-                'No signature of method: com.martinandersson.groovy.testing.closures.Closures$_main_closure2.xxx() is applicable for argument types: () values: []\n' +
+                'No signature of method: com.martinandersson.groovy.testing.closures.Closures$_main_closure4.xxx() is applicable for argument types: () values: []\n' +
                 'Possible solutions: any(), any(), use([Ljava.lang.Object;), is(java.lang.Object), any(groovy.lang.Closure), use([Ljava.lang.Object;)'
         }
         
