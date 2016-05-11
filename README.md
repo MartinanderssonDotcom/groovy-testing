@@ -6,4 +6,4 @@ So far, my impression of Groovy is that they have managed to come up with some g
 
 For example, private and protected keywords exists but has no meaning and final local variables are mutable. There exists a godzillion different hook methods. At least one such method even change semantics depending on how it is used (invokeMethod) and the call order is not exactly easy to decipher.
 
-I get a feeling that "anything goes" with Groovy and I can see why people use it for DSL:s and scripts. Me personally and thus far, I would never consider Groovy as a plausible candidate for large-scale serious application development.
+I get a feeling that "anything goes" with Groovy and I can see why people use it for DSL:s and scripts. Me personally, I would hesitate using Groovy for a new professional-graded application. Surely I will change my mind as I progress in my knowledge and I am looking forward to learning Groovy.
